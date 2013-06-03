@@ -4,12 +4,16 @@ module CbNitride
       self.configuration.password
     end
 
-    def self.user_name
-      self.configuration.user_name
+    def self.username
+      self.configuration.username
     end
 
     def self.account_number
       self.configuration.account_number
+    end
+
+    def self.qualified
+      self.configuration.qualified
     end
 
     def self.configure(configuration = CbNitride::Configuration.new)
@@ -22,7 +26,6 @@ module CbNitride
     end
 
   class Configuration
-    attr_accessor :user_name, :password, :account_number
-
+    attr_accessor :username, :password, :account_number, :qualified
   end
 end
