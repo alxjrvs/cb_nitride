@@ -12,12 +12,6 @@ module CbNitride
       def agent
         self.new.login
       end
-
-      def qualified?
-        a = self.new
-        a.agent.get(HOME_URL)
-        a.agent.page.uri.to_s == HOME_URL ? true : false
-      end
     end
 
     def agent

@@ -5,10 +5,12 @@ module CbNitride
   class PublicHasher
     attr_reader :diamond_number, :agent
 
-    BASE_URL = "http://www.previewsworld.com/Home/1/1/71/952?stockItemID="
+    BASE_URL = "http://www.previewsworld.com"
+    DIAMOND_NUMBER_SEARCH_PATH = "/Home/1/1/71/952?stockItemID="
+    SEARCH_URL = BASE_URL + DIAMOND_NUMBER_SEARCH_PATH
     CONTAINER_CLASS = ".StockCode"
     TITLE_CLASS = ".StockCodeDescription"
-    IMAGE_CLASS = ".StockCodeImage"
+    IMAGE_CLASS = "a.StockCodeImage"
     PUBLISHER_CLASS = ".StockCodePublisher"
     CREATOR_CLASS = ".StockCodeCreators"
     DESCRIPTION_CLASS = ".PreviewsHtml"
@@ -26,7 +28,7 @@ module CbNitride
     end
 
     def issue_page
-      @issue_page ||= Nokogiri::HTML(agent.get(BASE_URL + diamond_number).content)
+      @issue_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
     end
 
     def find_text_with(code)
@@ -41,11 +43,12 @@ module CbNitride
       return @prelim_hash unless @prelim_hash.nil?
       @prelim_hash = {
       title: find_text_with(TITLE_CLASS),
-      image_url: find_text_with(IMAGE_CLASS),
-      publisher: find_text_with(PUBLISHER_CLASS).gsub("Publisher :", ""),
+      stock_number: issue_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
+      image_url: BASE_URL + issue_page.css("a.FancyPopupImage").children[1].attributes["src"].value,
+      publisher: find_text_with(PUBLISHER_CLASS).gsub("Publisher:", ""),
       creators: find_text_with(CREATOR_CLASS),
       description: find_text_with(DESCRIPTION_CLASS),
-      release_date: find_text_with(RELEASE_CLASS).match(/\d+[\/]\d+[\/]\d+/).to_s,
+      release_date: Date.strptime(find_text_with(RELEASE_CLASS).match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y"),
       price: find_text_with(PRICE_CLASS).match(/\d+[.]\d+/).to_s.to_f
       }
     end

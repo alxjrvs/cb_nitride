@@ -6,8 +6,8 @@ require "cb_nitride/public_hasher"
 
 module CbNitride
   class Pull
-    def self.issue(diamond_number)
-      unless DiamondLogin.qualified?
+    def self.issue(diamond_number, qualified = false)
+      unless qualified
         PublicHasher.issue(diamond_number)
       else
         PrivateHasher.issue(diamond_number)
