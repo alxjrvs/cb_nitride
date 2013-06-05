@@ -5,4 +5,13 @@ require "cb_nitride/diamond_login"
 require "cb_nitride/public_hasher"
 
 module CbNitride
+  class Pull
+    def self.issue(diamond_number)
+      unless DiamondLogin.qualified?
+        PublicHasher.issue(diamond_number)
+      else
+        PrivateHasher.issue(diamond_number)
+      end
+    end
+  end
 end

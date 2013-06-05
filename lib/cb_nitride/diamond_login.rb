@@ -8,12 +8,20 @@ module CbNitride
 
     attr_accessor :agent
 
-    def self.agent
-      new.login
+    class << self
+      def agent
+        self.new.login
+      end
+
+      def qualified?
+        a = self.new
+        a.agent.get(HOME_URL)
+        a.agent.page.uri.to_s == HOME_URL ? true : false
+      end
     end
 
     def agent
-      @agent ||= new.login
+      @agent ||= login
     end
 
     def reset_agent
@@ -33,5 +41,6 @@ module CbNitride
       agent = empty_agent
       return agent
     end
+
   end
 end

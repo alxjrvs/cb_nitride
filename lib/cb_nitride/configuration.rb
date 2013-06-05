@@ -12,8 +12,8 @@ module CbNitride
       self.configuration.account_number
     end
 
-    def self.qualified
-      self.configuration.qualified
+    def self.qualified?
+      DiamondLogin.qualified?
     end
 
     def self.configure(configuration = CbNitride::Configuration.new)
@@ -26,6 +26,6 @@ module CbNitride
     end
 
   class Configuration
-    attr_accessor :username, :password, :account_number, :qualified
+    attr_accessor :username, :password, :account_number
   end
 end
