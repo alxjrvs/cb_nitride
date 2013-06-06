@@ -15,4 +15,5 @@ class ConfigurationTest < MiniTest::Unit::TestCase
     assert_equal CbNitride.password, "password"
     assert_equal CbNitride.account_number, "12345"
   end
+
 end

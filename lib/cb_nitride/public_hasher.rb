@@ -18,8 +18,8 @@ module CbNitride
     PRICE_CLASS  = ".StockCodeSrp"
 
 
-    def self.issue(diamond_number)
-      new(diamond_number).issue_hash
+    def self.item(diamond_number)
+      new(diamond_number).return_hash
     end
 
     def initialize(diamond_number)
@@ -27,24 +27,24 @@ module CbNitride
       @agent = Mechanize.new
     end
 
-    def issue_page
-      @issue_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
+    def item_page
+      @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
     end
 
     def find_text_with(code)
-      issue_page.css(code).text.strip
+      item_page.css(code).text.strip
     end
 
     def is_valid_diamond_code
-      @is_valid_diamond_code ||= issue_page.css(CONTAINER_CLASS).empty? ? false : true
+      @is_valid_diamond_code ||= item_page.css(CONTAINER_CLASS).empty? ? false : true
     end
 
     def prelim_hash
       return @prelim_hash unless @prelim_hash.nil?
       @prelim_hash = {
       title: find_text_with(TITLE_CLASS),
-      stock_number: issue_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
-      image_url: BASE_URL + issue_page.css("a.FancyPopupImage").children[1].attributes["src"].value,
+      stock_number: item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
+      image_url: BASE_URL + item_page.css("a.FancyPopupImage").children[1].attributes["src"].value,
       publisher: find_text_with(PUBLISHER_CLASS).gsub("Publisher:", ""),
       creators: find_text_with(CREATOR_CLASS),
       description: find_text_with(DESCRIPTION_CLASS),
@@ -99,14 +99,29 @@ module CbNitride
       return @is_merch
     end
 
-    def issue_hash
+    def return_hash
       return {} unless is_valid_diamond_code
-      prelim_hash.merge({
-        issue: is_issue?,
-        variant: is_variant?,
-        collection: is_collection?,
-        merchandise: is_merch?
-      })
+      if is_issue?
+        {
+          issue: prelim_hash,
+          type: :public
+        }
+      elsif is_variant?
+        {
+          variant: prelim_hash,
+          type: :public
+        }
+      elsif is_collection?
+        {
+          collection: prelim_hash,
+          type: :public
+        }
+      elsif is_merch?
+        {
+          merchandise: prelim_hash,
+          type: :public
+        }
+      end
     end
   end
 end

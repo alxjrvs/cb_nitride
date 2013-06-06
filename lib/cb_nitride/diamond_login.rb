@@ -1,5 +1,11 @@
 require 'mechanize'
+
+
 module CbNitride
+
+  class InvalidLoginError < StandardError
+  end
+
   class DiamondLogin
 
     LOGIN_URL = "https://retailerservices.diamondcomics.com/Login/Login"
@@ -33,7 +39,11 @@ module CbNitride
       form.Password =  CbNitride.password
       empty_agent.submit(form)
       agent = empty_agent
-      return agent
+      if agent.page.uri.to_s == HOME_URL
+        agent
+      else
+        raise InvalidLoginError
+      end
     end
 
   end
