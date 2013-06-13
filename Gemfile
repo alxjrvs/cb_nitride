@@ -9,5 +9,5 @@ gem 'pry'
 
 group :test do
   gem 'vcr'
-  gem 'fakeweb'
+  gem 'webmock'
 end
