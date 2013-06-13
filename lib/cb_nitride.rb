@@ -4,6 +4,7 @@ require "cb_nitride/module_methods"
 require "cb_nitride/configuration"
 require "cb_nitride/diamond_login"
 require "cb_nitride/public_hasher"
+require "cb_nitride/private_hasher"
 
 module CbNitride
   def self.issue(diamond_number, qualified = false)

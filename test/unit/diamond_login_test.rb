@@ -29,6 +29,7 @@ class DiamondLoginTest < MiniTest::Unit::TestCase
 
   def test_that_it_resets_the_agent
     setup_vcr
+    set_login_data
 
     a = CbNitride::DiamondLogin.new
     a.login

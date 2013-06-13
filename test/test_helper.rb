@@ -21,9 +21,9 @@ end
 module LoginInformation
   def set_login_data
     CbNitride.configure do |c|
-      c.username = "XXXXXX"
-      c.account_number = "XXXXXX"
-      c.password = "XXXXXX"
+      c.username = "XXX"
+      c.account_number = "YYY"
+      c.password = "ZZZ"
     end
   end
 
@@ -32,6 +32,25 @@ module LoginInformation
       c.username = ""
       c.account_number = ""
       c.password = ""
+    end
+  end
+end
+
+module HasherTests
+
+  ISSUE_CODE = "APR130131"
+  VARIANT_CODE = "APR130183"
+  MERCH_CODE = "MAR131699"
+  COLLECTION_CODE = "FEB130068"
+
+
+  def assert_it_is_a(code)
+    codes = [:issue, :merchandise, :variant, :collection] - [code]
+
+    refute_nil @hash[code]
+
+    codes.each do |c|
+      assert_nil @hash[c]
     end
   end
 end

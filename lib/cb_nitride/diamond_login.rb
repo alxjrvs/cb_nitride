@@ -39,7 +39,7 @@ module CbNitride
       form.Password =  CbNitride.password
       empty_agent.submit(form)
       agent = empty_agent
-      if agent.page.uri.to_s == HOME_URL
+      unless agent.page.uri.to_s.include? LOGIN_URL
         agent
       else
         raise InvalidLoginError
