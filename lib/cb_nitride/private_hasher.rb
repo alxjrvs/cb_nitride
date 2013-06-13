@@ -53,8 +53,8 @@ module CbNitride
         publisher: find_text_with(PUBLISHER_CLASS),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
-        release_date: Date.strptime(native_hash["Est Ship Date"].match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y"),
-        price: native_hash["Price Before Discount"].match(/\d+[.]\d+/).to_s.to_f
+        release_date: clean_date_string(native_hash["Est Ship Date"]),
+        price: clean_price_float(native_hash["Price Before Discount"])
       }
     end
 

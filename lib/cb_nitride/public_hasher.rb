@@ -36,18 +36,23 @@ module CbNitride
 
     private
 
+    def get_stock_number
+      item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", "")
+    end
+
+    
     def branded_hash
       return @branded_hash unless @branded_hash.nil?
       @branded_hash = {
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
-        stock_number: item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
+        stock_number: get_stock_number,
         image_url: get_image_url(BASE_URL),
         publisher: find_text_with(PUBLISHER_CLASS).gsub(/Publisher:\W*/, ""),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
-        release_date: Date.strptime(find_text_with(RELEASE_CLASS).match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y"),
-        price: find_text_with(PRICE_CLASS).match(/\d+[.]\d+/).to_s.to_f
+        release_date: clean_date_string(find_text_with(RELEASE_CLASS)),
+        price: clean_price_float(find_text_with(PRICE_CLASS))
       }
     end
 

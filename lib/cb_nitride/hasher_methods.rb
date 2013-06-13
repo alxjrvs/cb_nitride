@@ -46,5 +46,14 @@ module CbNitride
     def item_page
       @item_page ||= Nokogiri::HTML(agent.get(search_url + diamond_number).content)
     end
+
+
+    def clean_price_float(price)
+      price.match(/\d+[.]\d+/).to_s.to_f
+    end
+
+    def clean_date_string(date)
+      Date.strptime(date.match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y")
+    end
   end
 end
