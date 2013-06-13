@@ -3,12 +3,15 @@ require 'nokogiri'
 
 module CbNitride
   class PublicHasher
-    attr_reader :diamond_number, :agent
+    include HasherMethods
+    attr_reader :diamond_number, :agent, :container_class, :search_url, :image_class
 
     BASE_URL = "http://www.previewsworld.com"
     DIAMOND_NUMBER_SEARCH_PATH = "/Home/1/1/71/952?stockItemID="
+
     SEARCH_URL = BASE_URL + DIAMOND_NUMBER_SEARCH_PATH
 
+    IMAGE_CLASS = "a.FancyPopupImage"
     CONTAINER_CLASS = ".StockCode"
     TITLE_CLASS = ".StockCodeDescription"
     PUBLISHER_CLASS = ".StockCodePublisher"
@@ -17,76 +20,34 @@ module CbNitride
     RELEASE_CLASS = ".StockCodeInShopsDate"
     PRICE_CLASS  = ".StockCodeSrp"
 
+    STATE = :public
 
     def self.item(diamond_number)
-      new(diamond_number).return_hash
+      new(diamond_number).return_hash(STATE)
     end
 
     def initialize(diamond_number)
       @diamond_number = diamond_number
       @agent = Mechanize.new
-    end
-
-    def return_hash
-      return {} unless is_valid_diamond_code
-      if is_issue?
-        {
-          issue: branded_hash,
-          type: :public
-        }
-      elsif is_variant?
-        {
-          variant: branded_hash,
-          type: :public
-        }
-      elsif is_collection?
-        {
-          collection: branded_hash,
-          type: :public
-        }
-      elsif is_merch?
-        {
-          merchandise: branded_hash,
-          type: :public
-        }
-      else
-        {
-          other: branded_hash,
-          type: :public
-        }
-      end
+      @search_url = SEARCH_URL
+      @image_class = IMAGE_CLASS
+      @container_class = CONTAINER_CLASS
     end
 
     private
 
-    def item_page
-      @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
-    end
-
-    def find_text_with(code)
-      item_page.css(code).text.strip
-    end
-
-    def is_valid_diamond_code
-      @is_valid_diamond_code ||= item_page.css(CONTAINER_CLASS).empty? ? false : true
-    end
-
-    def get_image_url
-      BASE_URL + item_page.css("a.FancyPopupImage").children[1].attributes["src"].value
-    end
-
     def branded_hash
       return @branded_hash unless @branded_hash.nil?
       @branded_hash = {
-      title: find_text_with(TITLE_CLASS),
-      diamond_number: diamond_number,
-      stock_number: item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
-      image_url: get_image_url,
-      publisher: find_text_with(PUBLISHER_CLASS).gsub(/Publisher:\W*/, ""),
-      creators: find_text_with(CREATOR_CLASS),
-      description: find_text_with(DESCRIPTION_CLASS),
-      release_date: Date.strptime(find_text_with(RELEASE_CLASS).match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y"),
-      price: find_text_with(PRICE_CLASS).match(/\d+[.]\d+/).to_s.to_f
+        title: find_text_with(TITLE_CLASS),
+        diamond_number: diamond_number,
+        stock_number: item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", ""),
+        image_url: get_image_url(BASE_URL),
+        publisher: find_text_with(PUBLISHER_CLASS).gsub(/Publisher:\W*/, ""),
+        creators: find_text_with(CREATOR_CLASS),
+        description: find_text_with(DESCRIPTION_CLASS),
+        release_date: Date.strptime(find_text_with(RELEASE_CLASS).match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y"),
+        price: find_text_with(PRICE_CLASS).match(/\d+[.]\d+/).to_s.to_f
       }
     end
 

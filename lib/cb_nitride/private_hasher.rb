@@ -1,60 +1,38 @@
 module CbNitride
   class PrivateHasher
-    attr_reader :diamond_number, :agent
+    include HasherMethods
+    attr_reader :diamond_number, :agent, :container_class, :search_url, :image_class
 
     BASE_URL = "https://retailerservices.diamondcomics.com"
     DIAMOND_NUMBER_SEARCH_PATH = "/ShoppingList/AddItem/"
+
     SEARCH_URL = BASE_URL + DIAMOND_NUMBER_SEARCH_PATH
 
     ISSUE_CODE = "1"
     COLLECTION_CODE = "3"
     MERCHANDISE_CODES = ["2", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
 
+    IMAGE_CLASS = 'a.ImagePopup'
     TITLE_CLASS = '.ItemDetails_ItemName'
     PUBLISHER_CLASS = '.ItemDetails_Publisher'
     CREATOR_CLASS = '.ItemDetails_Creator'
     DESCRIPTION_CLASS = '.ItemDetails_Description'
     CONTAINER_CLASS = '.PopupContent'
 
+    STATE = :private
 
     def self.item(diamond_number, agent = DiamondLogin.agent)
-      new(diamond_number, agent).return_hash
+      new(diamond_number, agent).return_hash(STATE)
     end
 
     def initialize(diamond_number, agent = DiamondLogin.agent)
       @diamond_number = diamond_number
       @agent = agent
+      @search_url = SEARCH_URL
+      @container_class = CONTAINER_CLASS
+      @image_class = IMAGE_CLASS
     end
 
-    def return_hash
-      return {} unless is_valid_diamond_code
-      if is_issue?
-        {
-          issue: branded_hash,
-          type: :private
-        }
-      elsif is_variant?
-        {
-          variant: branded_hash,
-          type: :private
-        }
-      elsif is_collection?
-        {
-          collection: branded_hash,
-          type: :private
-        }
-      elsif is_merch?
-        {
-          merchandise: branded_hash,
-          type: :private
-        }
-      else
-        {
-          other: branded_hash,
-          type: :private
-        }
-      end
-    end
 
     def native_hash
       @native_hash ||= item_page.css('.LookupItemData_Item').map do |l|
@@ -64,28 +42,14 @@ module CbNitride
 
     private
 
-    def item_page
-      @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
-    end
 
-    def find_text_with(code)
-      item_page.css(code).text.strip
-    end
-
-    def is_valid_diamond_code
-      @is_valid_diamond_code ||= item_page.css(CONTAINER_CLASS).empty? ? false : true
-    end
-
-    def get_image_url
-      BASE_URL + item_page.css('a.ImagePopup').children[1].attributes["src"].value
-    end
 
     def branded_hash
       @branded_hash ||= {
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: native_hash["Stock #"],
-        image_url: get_image_url,
+        image_url: get_image_url(BASE_URL),
         publisher: find_text_with(PUBLISHER_CLASS),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
