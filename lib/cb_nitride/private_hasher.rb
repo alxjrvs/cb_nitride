@@ -80,12 +80,6 @@ module CbNitride
       BASE_URL + item_page.css('a.ImagePopup').children[1].attributes["src"].value
     end
 
-    def native_hash
-      @native_hash ||= item_page.css('.LookupItemData_Item').map do |l|
-        Hash[l.css('.LookupItemData_Label').text.strip => l.css('.LookupItemData_Value').text.strip]
-      end.reduce Hash.new, :merge
-    end
-
     def branded_hash
       @branded_hash ||= {
         title: find_text_with(TITLE_CLASS),
