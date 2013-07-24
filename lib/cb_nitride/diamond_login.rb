@@ -1,10 +1,5 @@
 require 'mechanize'
-
-
 module CbNitride
-
-  class InvalidLoginError < StandardError
-  end
 
   class DiamondLogin
 

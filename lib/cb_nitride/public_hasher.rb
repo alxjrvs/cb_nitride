@@ -20,18 +20,19 @@ module CbNitride
     RELEASE_CLASS = ".StockCodeInShopsDate"
     PRICE_CLASS  = ".StockCodeSrp"
 
-    STATE = :public
-
     def self.item(diamond_number)
-      new(diamond_number).return_hash(STATE)
+      new(diamond_number).spawn_item
     end
 
     def initialize(diamond_number)
       @diamond_number = diamond_number
       @agent = Mechanize.new
-      @search_url = SEARCH_URL
-      @image_class = IMAGE_CLASS
-      @container_class = CONTAINER_CLASS
+      check_diamond_validity
+    end
+
+    def spawn_item
+     DiamondItem.new(branded_hash)
+
     end
 
     private
@@ -40,67 +41,37 @@ module CbNitride
       item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", "")
     end
 
-    
-    def branded_hash
-      return @branded_hash unless @branded_hash.nil?
-      @branded_hash = {
+    def uncategorized_hash
+        @_uncategorized_hash ||= {
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: get_stock_number,
-        image_url: get_image_url(BASE_URL),
+        image_url: get_image_url(BASE_URL, IMAGE_CLASS),
         publisher: find_text_with(PUBLISHER_CLASS).gsub(/Publisher:\W*/, ""),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
         release_date: clean_date_string(find_text_with(RELEASE_CLASS)),
-        price: clean_price_float(find_text_with(PRICE_CLASS))
+        price: clean_price_float(find_text_with(PRICE_CLASS)),
+        state: :public
       }
     end
 
-    def is_variant?
-      return @is_variant unless @is_variant.nil?
-      @is_variant = true if branded_hash[:title].include? "VAR ED"
-      @is_variant = true if branded_hash[:title].include? "COMBO PACK"
-      @is_variant = true if branded_hash[:title].match(/(CVR)\s[B-Z]/)
-      @is_variant = false if @is_variant.nil?
-      return @is_variant
+    def branded_hash
+      @_branded_hash ||=
+        uncategorized_hash.merge!(
+          category_code: CategorySorter.new(uncategorized_hash).sort
+        )
     end
 
-    def is_issue?
-      return @is_issue unless @is_issue.nil?
-      if branded_hash[:title].match(/(CVR)\s[A]/)
-        @is_issue = true
-      elsif is_variant?
-        @is_issue = false
-      elsif is_collection?
-        @is_issue = false
-      elsif is_merch?
-        @is_issue = false
-      else
-        @is_issue = true
+
+    def check_diamond_validity
+      if item_page.css(CONTAINER_CLASS).empty?
+        raise InvalidDiamondNumberError, "Your Diamond Number is Invalid."
       end
-      return @is_issue
     end
 
-    def is_collection?
-      return @is_collection unless @is_collection.nil?
-      @is_collection = true if branded_hash[:title].include?(" GN ")
-      @is_collection = true if branded_hash[:title].include?(" TP ")
-      @is_collection = true if branded_hash[:title].match(/\s(VOL)\s\d+/)
-      @is_collection = false if branded_hash[:title].match(/\s[#]\d+/)
-      @is_collection = false if @is_collection.nil?
-      return @is_collection
+    def item_page
+      @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
     end
-
-    def is_merch?
-      return @is_merch unless @is_merch.nil?
-      case branded_hash[:creators]
-      when ""
-        @is_merch = true
-      else
-        @is_merch = false
-      end
-      return @is_merch
-    end
-
   end
 end

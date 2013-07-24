@@ -18,6 +18,12 @@ VCR.configure do |c|
 end
 
 
+module CategoryCodes
+    ISSUE_CATEGORY_CODE = "1"
+    COLLECTION_CATEGORY_CODE = "3"
+    MERCHANDISE_CATEGORY_CODES = ["2", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+end
+
 module LoginInformation
   def set_login_data
     CbNitride.configure do |c|
@@ -43,16 +49,6 @@ module HasherTests
   MERCH_CODE = "MAR131699"
   COLLECTION_CODE = "FEB130068"
 
-
-  def assert_it_is_a(code)
-    codes = [:issue, :merchandise, :variant, :collection] - [code]
-
-    refute_nil @hash[code]
-
-    codes.each do |c|
-      assert_nil @hash[c]
-    end
-  end
 end
 
 module Recordable
