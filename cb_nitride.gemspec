@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alxjrvs@gmail.com"]
   spec.description   = %q{A Gem for accessing information from the diamond comics backend.}
   spec.summary       = %q{Only useable with a qualified Diamond Comic Retailer!}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/alxjrvs"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_runtime_dependency "mechanize", "~> 2.7"
+  spec.add_runtime_dependency "nokogiri", "~> 1.5"
 end
