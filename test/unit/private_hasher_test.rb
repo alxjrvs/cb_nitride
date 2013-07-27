@@ -61,8 +61,7 @@ class PrivateHasherTest < MiniTest::Unit::TestCase
   end
 
   def test_that_the_private_hash_identifies_invalid_diamond_codes
-    assert_raises CbNitride::InvalidDiamondNumberError do
-      setup_object("FEB1099999")
-    end
+    setup_object("FEB1099999")
+    assert_equal @item, nil
   end
 end

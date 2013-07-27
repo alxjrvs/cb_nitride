@@ -21,18 +21,29 @@ module CbNitride
     PRICE_CLASS  = ".StockCodeSrp"
 
     def self.item(diamond_number)
-      new(diamond_number).spawn_item
+      item = new(diamond_number)
+      if item.valid_diamond_number?
+        item.spawn_item
+      else
+        return nil
+      end
     end
 
     def initialize(diamond_number)
       @diamond_number = diamond_number
       @agent = Mechanize.new
-      check_diamond_validity
     end
 
     def spawn_item
      DiamondItem.new(branded_hash)
+    end
 
+    def valid_diamond_number?
+      if item_page.css(CONTAINER_CLASS).empty?
+        return false
+      else
+        return true
+      end
     end
 
     private
@@ -64,11 +75,6 @@ module CbNitride
     end
 
 
-    def check_diamond_validity
-      if item_page.css(CONTAINER_CLASS).empty?
-        raise InvalidDiamondNumberError, "Your Diamond Number is Invalid."
-      end
-    end
 
     def item_page
       @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)

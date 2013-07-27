@@ -6,6 +6,7 @@ gemspec
 gem 'mechanize'
 gem 'nokogiri'
 gem 'pry'
+gem 'stamp'
 
 group :test do
   gem 'vcr'
