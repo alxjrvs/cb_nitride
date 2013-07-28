@@ -61,7 +61,8 @@ module CbNitride
         release_date: clean_date_string(native_hash["Est Ship Date"]),
         price: clean_price_float(native_hash["Price Before Discount"]),
         category_code: native_hash["Category Code"],
-        state: :private
+        state: :private,
+        errors: error_array
       }
     end
 

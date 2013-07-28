@@ -53,7 +53,7 @@ module CbNitride
     end
 
     def uncategorized_hash
-        @_uncategorized_hash ||= {
+      @_uncategorized_hash ||= {
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: get_stock_number,
@@ -63,7 +63,8 @@ module CbNitride
         description: find_text_with(DESCRIPTION_CLASS),
         release_date: clean_date_string(find_text_with(RELEASE_CLASS)),
         price: clean_price_float(find_text_with(PRICE_CLASS)),
-        state: :public
+        state: :public,
+        errors: error_array
       }
     end
 
@@ -73,8 +74,6 @@ module CbNitride
           category_code: CategorySorter.new(uncategorized_hash).sort
         )
     end
-
-
 
     def item_page
       @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)

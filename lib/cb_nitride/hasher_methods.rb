@@ -1,6 +1,12 @@
 module CbNitride
   module HasherMethods
 
+    attr_accessor :error_array
+
+    def error_array
+      @error_array ||= []
+    end
+
     def find_text_with(code)
       item_page.css(code).text.strip
     end
@@ -14,7 +20,11 @@ module CbNitride
     end
 
     def clean_date_string(date)
-      Date.strptime(date.match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y")
+      if date == ""
+        error_array << "No Release Date"
+      else
+        Date.strptime(date.match(/\d+[\/]\d+[\/]\d+/).to_s, "%m/%d/%Y")
+      end
     end
   end
 end
