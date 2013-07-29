@@ -12,7 +12,12 @@ module CbNitride
     end
 
     def get_image_url(base_url, image_class)
-      base_url + item_page.css(image_class).children[1].attributes["src"].value
+      image_container = item_page.css(image_class)
+      if image_container.empty?
+        error_array << "No Image"
+      else
+        base_url + item_page.css(image_class).children[1].attributes["src"].value
+      end
     end
 
     def clean_price_float(price)

@@ -1,4 +1,3 @@
-require 'pry'
 require "cb_nitride/version"
 require "cb_nitride/exceptions"
 require "cb_nitride/module_methods"
@@ -10,13 +9,14 @@ require "cb_nitride/private_hasher"
 require "cb_nitride/category_sorter"
 require "cb_nitride/diamond_item"
 require "cb_nitride/diamond_number_generator"
+require "cb_nitride/title_formatter"
 
 module CbNitride
   def self.item(diamond_number, options = {})
-    unless qualified?
-      PublicHasher.item(diamond_number)
+    if qualified?
+      PrivateHasher.item(diamond_number, options[:agent] || DiamondLogin.agent)
     else
-      PrivateHasher.item(diamond_number, options[:agent])
+      PublicHasher.item(diamond_number)
     end
   end
 
@@ -34,7 +34,8 @@ module CbNitride
         diamond_item = item (diamond_number)
       end
       if diamond_item.nil?
-        binding.pry
+        puts 'Invalid diamond item'
+        next
       else
         puts "Recorded #{diamond_item.title} (#{diamond_number})"
         diamond_item
@@ -43,17 +44,14 @@ module CbNitride
   end
 
   def self.scrape_all!
-    generate_diamond_numbers.map do |year_scope|
-      year_scope.each do |month|
-        month.each do |diamond_number|
-          diamond_item = item(diamond_number)
-          if diamond_item.nil?
-            binding.pry
-          else
-            puts "Recorded #{diamond_item.title} (#{diamond_number})"
-            diamond_item
-          end
-        end
+    generate_diamond_numbers.flatten.map do |diamond_number|
+      diamond_item = item(diamond_number)
+      if diamond_item.nil?
+        puts "invalid diamond Item"
+        next
+      else
+        puts "Recorded #{diamond_item.title} (#{diamond_number})"
+        diamond_item
       end
     end.flatten
   end

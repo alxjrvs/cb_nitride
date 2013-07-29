@@ -31,8 +31,8 @@ module CbNitride
     end
 
     def brute_force_formatted_numbers
-      year_codes.map do |year|
-        month_codes.map do |month|
+      year_range.map do |year|
+        month_range.map do |month|
           generate_numbers(year, month)
         end
       end

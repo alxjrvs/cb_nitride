@@ -1,11 +1,11 @@
 module CbNitride
   class DiamondItem
 
-    attr_reader :state, :diamond_number, :title, :stock_number, :image_url, :publisher, :creators, :description, :release_date, :price, :category_code
+    attr_reader :state, :diamond_number, :stock_number, :image_url, :publisher, :creators, :description, :release_date, :price, :category_code, :errors, :raw_title
 
     def initialize(options = {})
       @state = options[:state]
-      @title = options[:title]
+      @raw_title = options[:title]
       @diamond_number = options[:diamond_number]
       @stock_number = options[:stock_number]
       @image_url = options[:image_url]
@@ -28,6 +28,26 @@ module CbNitride
 
     def cover_artist
       @_cover_artist ||= creators_hash["CA"]
+    end
+
+    def title
+      title_formatter.clean_title
+    end
+
+    def special_number
+      title_formatter.special_number
+    end
+
+    def issue_number
+      title_formatter.issue_number
+    end
+
+    def limited_series_max_issue
+      title_formatter.limited_series_max_issue
+    end
+
+    def variant_description
+      title_formatter.variant_description
     end
 
     def product_type?
@@ -66,6 +86,10 @@ module CbNitride
         end
       end
       @_creators_hash = hash
+    end
+
+    def title_formatter
+      @_formatted_title ||= TitleFormatter.new(raw_title)
     end
 
     def is_collection?
