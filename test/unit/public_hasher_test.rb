@@ -21,7 +21,7 @@ class PublicHasherTest < MiniTest::Unit::TestCase
     refute_equal @item.title, "Pug Party Parade"
     assert_equal @item.stock_number, "STK611169"
     assert_equal @item.diamond_number, ISSUE_CODE
-    assert_equal @item.image_url, "http://www.previewsworld.com/catalogimages/STK_IMAGES/STK600001-620000/STK611169.jpg"
+    assert_equal @item.image.class, MechanizeClip::PageTmpFile
     assert_equal @item.publisher, "DC COMICS"
     assert_equal @item.creators, "(W) Jeff Lemire (A/CA) Andrea Sorrentino"
     assert_equal @item.description, "Ollie returns to the island where he first became Green Arrow and learns some hard truths about his father and the mysterious Outsiders!"

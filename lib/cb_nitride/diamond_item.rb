@@ -1,13 +1,14 @@
 module CbNitride
   class DiamondItem
 
-    attr_reader :state, :diamond_number, :stock_number, :image_url, :publisher, :creators, :description, :release_date, :price, :category_code, :errors, :raw_title
+    attr_reader :state, :diamond_number, :stock_number, :image_url, :publisher, :creators, :description, :release_date, :price, :category_code, :errors, :raw_title, :image
 
     def initialize(options = {})
       @state = options[:state]
       @raw_title = options[:title]
       @diamond_number = options[:diamond_number]
       @stock_number = options[:stock_number]
+      @image = options[:image]
       @image_url = options[:image_url]
       @publisher = options[:publisher]
       @creators = options[:creators]
@@ -18,8 +19,8 @@ module CbNitride
       @errors = options[:errors]
     end
 
-    def writer
-      @_writer ||= creators_hash["W"]
+    def author
+      @_author ||= creators_hash["W"]
     end
 
     def artist

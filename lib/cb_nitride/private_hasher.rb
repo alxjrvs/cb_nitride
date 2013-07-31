@@ -1,3 +1,4 @@
+require 'mechanize_clip'
 module CbNitride
   class PrivateHasher
     include HasherMethods
@@ -54,7 +55,7 @@ module CbNitride
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: native_hash["Stock #"],
-        image_url: get_image_url(BASE_URL, IMAGE_CLASS),
+        image: get_image,
         publisher: find_text_with(PUBLISHER_CLASS),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
@@ -64,6 +65,10 @@ module CbNitride
         state: :private,
         errors: error_array
       }
+    end
+
+    def get_image
+      MechanizeClip.get get_image_url(BASE_URL, IMAGE_CLASS), agent
     end
 
     def item_page

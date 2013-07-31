@@ -15,9 +15,9 @@ require "cb_nitride/title_formatter"
 module CbNitride
   def self.item(diamond_number, options = {})
     if qualified?
-      PrivateHasher.item(diamond_number, options[:agent] || DiamondLogin.agent)
+      PrivateHasher.item(diamond_number, options[:agent])
     else
-      PublicHasher.item(diamond_number)
+      PublicHasher.item(diamond_number, options[:agent])
     end
   end
 end

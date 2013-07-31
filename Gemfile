@@ -7,6 +7,7 @@ gem 'mechanize'
 gem 'nokogiri'
 gem 'pry'
 gem 'stamp'
+gem "mechanize_clip"
 
 group :test do
   gem 'vcr'

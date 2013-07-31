@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       accept:
-      - ! '*/*'
+      - '*/*'
       user-agent:
       - Mechanize/2.7.1 Ruby/1.9.3p385 (http://github.com/sparklemotion/mechanize/)
       accept-encoding:
@@ -26,39 +26,28 @@ http_interactions:
   response:
     status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "Y2FjaGUtY29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZQ==
-      !binary "Y29udGVudC10eXBl":
-      - !binary |-
-        dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04
-      !binary "Y29udGVudC1lbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "dmFyeQ==":
-      - !binary |-
-        QWNjZXB0LUVuY29kaW5n
-      !binary "c2VydmVy":
-      - !binary |-
-        TWljcm9zb2Z0LUlJUy83LjU=
-      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
-      - !binary |-
-        My4w
-      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
-      - !binary |-
-        NC4wLjMwMzE5
-      !binary "eC1wb3dlcmVkLWJ5":
-      - !binary |-
-        QVNQLk5FVA==
-      !binary "ZGF0ZQ==":
-      - !binary |-
-        VGh1LCAxMyBKdW4gMjAxMyAwMTo0ODoxNiBHTVQ=
-      !binary "Y29udGVudC1sZW5ndGg=":
-      - !binary |-
-        MzE0NA==
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-encoding:
+      - gzip
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.5
+      x-aspnetmvc-version:
+      - '3.0'
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 13 Jun 2013 01:48:16 GMT
+      content-length:
+      - '3144'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -132,8 +121,7 @@ http_interactions:
         S/Y74yYvabp4JYO+5IcSXvQvrW/QZ6ToGHnCnf6gtcj0q9enr35/Wl34/WV1
         4fc/e5HyEiB/+VTISQaS1uXTbIJ/QQZpQkDtY0jmPjWf0K/8YLbZOTqvSLEG
         vhmeX7icNCvCkH7lx7wun7i/yIGUZRhK0LULOML/D8WIIHq8IgAA
-    http_version: !binary |-
-      MS4x
+    http_version: '1.1'
   recorded_at: Thu, 13 Jun 2013 01:48:18 GMT
 - request:
     method: post
@@ -143,7 +131,7 @@ http_interactions:
       string: UserName=XXX&EnteredCustNo=YYY&Password=ZZZ&RememberMe=false
     headers:
       accept:
-      - ! '*/*'
+      - '*/*'
       user-agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
         like Gecko) Version/5.1.1 Safari/534.51.22
@@ -156,7 +144,7 @@ http_interactions:
       host:
       - retailerservices.diamondcomics.com
       referer:
-      - &70222097077160 !ruby/object:URI::HTTPS
+      - &1 !ruby/object:URI::HTTPS
         scheme: https
         user: 
         password: 
@@ -209,7 +197,7 @@ http_interactions:
       - '128'
     body:
       encoding: US-ASCII
-      string: ! "<html><head><title>Object moved</title></head><body>\r\n<h2>Object
+      string: "<html><head><title>Object moved</title></head><body>\r\n<h2>Object
         moved to <a href=\"/Home/Index\">here</a>.</h2>\r\n</body></html>\r\n"
     http_version: '1.1'
   recorded_at: Thu, 13 Jun 2013 01:48:18 GMT
@@ -221,7 +209,7 @@ http_interactions:
       string: ''
     headers:
       accept:
-      - ! '*/*'
+      - '*/*'
       user-agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
         like Gecko) Version/5.1.1 Safari/534.51.22
@@ -237,7 +225,7 @@ http_interactions:
       host:
       - retailerservices.diamondcomics.com
       referer:
-      - *70222097077160
+      - *1
       connection:
       - keep-alive
       keep-alive:
@@ -245,39 +233,28 @@ http_interactions:
   response:
     status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "Y2FjaGUtY29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZQ==
-      !binary "Y29udGVudC10eXBl":
-      - !binary |-
-        dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04
-      !binary "Y29udGVudC1lbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "dmFyeQ==":
-      - !binary |-
-        QWNjZXB0LUVuY29kaW5n
-      !binary "c2VydmVy":
-      - !binary |-
-        TWljcm9zb2Z0LUlJUy83LjU=
-      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
-      - !binary |-
-        My4w
-      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
-      - !binary |-
-        NC4wLjMwMzE5
-      !binary "eC1wb3dlcmVkLWJ5":
-      - !binary |-
-        QVNQLk5FVA==
-      !binary "ZGF0ZQ==":
-      - !binary |-
-        VGh1LCAxMyBKdW4gMjAxMyAwMTo0ODoxOSBHTVQ=
-      !binary "Y29udGVudC1sZW5ndGg=":
-      - !binary |-
-        MTE3ODM=
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-encoding:
+      - gzip
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.5
+      x-aspnetmvc-version:
+      - '3.0'
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 13 Jun 2013 01:48:19 GMT
+      content-length:
+      - '11783'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -543,8 +520,7 @@ http_interactions:
         xH2XuIvgSaxrIHKMkv5MGoe7EeY+5VZek/+aftUITKyxk0+DBOA2RUS06N6u
         z89/1409cKpBYwfKvNEsCaj1lP5ufld5yVDH/JT/6Av7uG/oD37MJ/QrP5aq
         5xVlfuouJUUG3WfmdfnE/fX4rp3Eebsoj37j5P8BA8e9QJmjAAA=
-    http_version: !binary |-
-      MS4x
+    http_version: '1.1'
   recorded_at: Thu, 13 Jun 2013 01:48:21 GMT
 - request:
     method: get
@@ -554,7 +530,7 @@ http_interactions:
       string: ''
     headers:
       accept:
-      - ! '*/*'
+      - '*/*'
       user-agent:
       - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
         like Gecko) Version/5.1.1 Safari/534.51.22
@@ -576,39 +552,28 @@ http_interactions:
   response:
     status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "Y2FjaGUtY29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZQ==
-      !binary "Y29udGVudC10eXBl":
-      - !binary |-
-        dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04
-      !binary "Y29udGVudC1lbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "dmFyeQ==":
-      - !binary |-
-        QWNjZXB0LUVuY29kaW5n
-      !binary "c2VydmVy":
-      - !binary |-
-        TWljcm9zb2Z0LUlJUy83LjU=
-      !binary "eC1hc3BuZXRtdmMtdmVyc2lvbg==":
-      - !binary |-
-        My4w
-      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
-      - !binary |-
-        NC4wLjMwMzE5
-      !binary "eC1wb3dlcmVkLWJ5":
-      - !binary |-
-        QVNQLk5FVA==
-      !binary "ZGF0ZQ==":
-      - !binary |-
-        VGh1LCAxMyBKdW4gMjAxMyAwMTo0ODoxOSBHTVQ=
-      !binary "Y29udGVudC1sZW5ndGg=":
-      - !binary |-
-        NDAyMw==
+      cache-control:
+      - private
+      content-type:
+      - text/html; charset=utf-8
+      content-encoding:
+      - gzip
+      vary:
+      - Accept-Encoding
+      server:
+      - Microsoft-IIS/7.5
+      x-aspnetmvc-version:
+      - '3.0'
+      x-aspnet-version:
+      - 4.0.30319
+      x-powered-by:
+      - ASP.NET
+      date:
+      - Thu, 13 Jun 2013 01:48:19 GMT
+      content-length:
+      - '4023'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -702,7 +667,190 @@ http_interactions:
         iXTx7WKWf3AXNAP0r/lhp+Fm9H0Sgd/j3+ChGfnxoTjzzrgpaRhPYcJ9dBUf
         PDH2vAEkIR+DRj/kFzvMm0no9/zBw/xqFUMLz/sPck7wYtDoR28Z2Dp/dyfV
         7Jp/mbcLBBP/D6Q388sESAAA
-    http_version: !binary |-
-      MS4x
+    http_version: '1.1'
   recorded_at: Thu, 13 Jun 2013 01:48:21 GMT
+- request:
+    method: get
+    uri: https://retailerservices.diamondcomics.com/Image/Display?pd=webdata/catalogimages/STK_IMAGES_THUMBNAIL/STK600001-620000&pf=STK611172_TN.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
+        like Gecko) Version/5.1.1 Safari/534.51.22
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Cookie:
+      - .ASPXAUTH=2690FA13397BE43A87D0C875FA05037852A9BBF73E4F944BBA9D92641ACD7BF572737499D2583EF605015162F5696145A428B66BAD475211B04316E859F79A0E02DC9D58CE21FD489002FF6F81DC354A3421CB88861DD43FCA6FC7B8052249B9AC21B53D0D47710958CAD1DF7F6E6F2F6A8FAA8208949B576A33870D580AA68F820C58B9C1E7F3F2F59D5C7D1063EB9711985599D752A31A6487C4D7C7AAF2D7A3FB57FC346B19A4FA42927F05F3F4DC80EF290000E2CF1DC7C4238690B08D30;
+        ASP.NET_SessionId=tfuvxnm1nvhz2z2fpdcxcqxb
+      Host:
+      - retailerservices.diamondcomics.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Location:
+      - /Login/Login?ReturnUrl=%2fImage%2fDisplay%3fpd%3dwebdata%2fcatalogimages%2fSTK_IMAGES_THUMBNAIL%2fSTK600001-620000%26pf%3dSTK611172_TN.jpg&pd=webdata/catalogimages/STK_IMAGES_THUMBNAIL/STK600001-620000&pf=STK611172_TN.jpg
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 31 Jul 2013 05:52:07 GMT
+      Content-Length:
+      - '346'
+    body:
+      encoding: UTF-8
+      string: "<html><head><title>Object moved</title></head><body>\r\n<h2>Object
+        moved to <a href=\"/Login/Login?ReturnUrl=%2fImage%2fDisplay%3fpd%3dwebdata%2fcatalogimages%2fSTK_IMAGES_THUMBNAIL%2fSTK600001-620000%26pf%3dSTK611172_TN.jpg&amp;pd=webdata/catalogimages/STK_IMAGES_THUMBNAIL/STK600001-620000&amp;pf=STK611172_TN.jpg\">here</a>.</h2>\r\n</body></html>\r\n"
+    http_version: 
+  recorded_at: Wed, 31 Jul 2013 05:51:52 GMT
+- request:
+    method: get
+    uri: https://retailerservices.diamondcomics.com/Login/Login?ReturnUrl=/Image/Display?pd=webdata/catalogimages/STK_IMAGES_THUMBNAIL/STK600001-620000%26pf=STK611172_TN.jpg&pd=webdata/catalogimages/STK_IMAGES_THUMBNAIL/STK600001-620000&pf=STK611172_TN.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
+        like Gecko) Version/5.1.1 Safari/534.51.22
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Cookie:
+      - .ASPXAUTH=2690FA13397BE43A87D0C875FA05037852A9BBF73E4F944BBA9D92641ACD7BF572737499D2583EF605015162F5696145A428B66BAD475211B04316E859F79A0E02DC9D58CE21FD489002FF6F81DC354A3421CB88861DD43FCA6FC7B8052249B9AC21B53D0D47710958CAD1DF7F6E6F2F6A8FAA8208949B576A33870D580AA68F820C58B9C1E7F3F2F59D5C7D1063EB9711985599D752A31A6487C4D7C7AAF2D7A3FB57FC346B19A4FA42927F05F3F4DC80EF290000E2CF1DC7C4238690B08D30;
+        ASP.NET_SessionId=tfuvxnm1nvhz2z2fpdcxcqxb
+      Host:
+      - retailerservices.diamondcomics.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnetmvc-Version:
+      - '3.0'
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 31 Jul 2013 05:52:07 GMT
+      Content-Length:
+      - '3250'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/Ih7/rk+/PHnz+7w8Teftojz6jZPH9meezehn
+        Ss/jRd5m1KBdbee/aF1cfvbR77391fH2SbVYZW0xKfOP0mm1bPNl+9lHZ6ef
+        PTxM6d8D/vcB/3v69PPTj9K7BlxbtGV+9PTkafqKABdlXqev8/qymOZNup0+
+        ry6K5eO70kjfKIvl23Re5+effXT3RLq6+3qe1flsPG2a3+Ny/6O0zsvPPmra
+        6zJv5nnefpS216v8s4/a/F17l9p43ceAfZEVy+fZdbVuBeCnHwqwneeLvLk7
+        yZr87nm2nF5Pqnd3f/oXrfP6emz+3t4d3xvvo8MP7W26btpqsc2dai/b64Lg
+        H4x3D8by7fv200zrYtWmTT2ljl7zH42BvTt+MN4dL4rl+KfpFQ/ET2eXmbz4
+        0dHju/LbLQCO59VlXmfTaVXPimr5TULuEHuVTd9+OOimWu59OBRB8KeXVVuc
+        X3+TY6bvqrJ8U9GY98d7298E5ObqvJr8dD5tPxiS4Nhnz/fDUv59/Ltub3+v
+        OCcdk376ffrmx0Q6bmTyjvgU+aciHZuZH81uh+Hj3/V7+XJWnH9/e5v+IoA+
+        pg8+CNMHt8P0wdfHlBHr9PuyLpasGm+hQRb5rMg++2iFVz4CngpX+uxgqlr8
+        p0nn3gtADeBLgMzcy2dD75hu8Vxmdfr7X2S/KP1MfvzMz6Tf+/6h+x4fjlfr
+        Zr71vY9//yZvj0kRrZftx6P0Y7Jzew8f7N3/9NP7259+/P07G956Wi3IirzI
+        FjleJBosquVsWi2KaTOmHxtebkn1vX2ZXeSXRX4l7VzLrfP1ctqSVky37qS/
+        2H2OBwO7yGhYs2q6XtBEjad1nrX5aUmGYNlufSzU+PjOITUbg1LU9uMOrT7m
+        L7Pmejmlb9t6nVP/BNw+9C1NGn239TGcgObRx+lnXpdlNSU3gLT2qq7aalqV
+        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
+        fwDoMIX6GSMAAA==
+    http_version: 
+  recorded_at: Wed, 31 Jul 2013 05:51:52 GMT
 recorded_with: VCR 2.5.0

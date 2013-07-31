@@ -1,4 +1,5 @@
 require 'mechanize'
+require 'mechanize_clip'
 require 'nokogiri'
 
 module CbNitride
@@ -29,9 +30,9 @@ module CbNitride
       end
     end
 
-    def initialize(diamond_number)
+    def initialize(diamond_number, agent = Mechanize.new)
       @diamond_number = diamond_number
-      @agent = Mechanize.new
+      @agent = agent
     end
 
     def spawn_item
@@ -57,7 +58,7 @@ module CbNitride
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: get_stock_number,
-        image_url: get_image_url(BASE_URL, IMAGE_CLASS),
+        image: get_image,
         publisher: find_text_with(PUBLISHER_CLASS).gsub(/Publisher:\W*/, ""),
         creators: find_text_with(CREATOR_CLASS),
         description: find_text_with(DESCRIPTION_CLASS),
@@ -66,6 +67,10 @@ module CbNitride
         state: :public,
         errors: error_array
       }
+    end
+
+    def get_image
+      MechanizeClip.get get_image_url(BASE_URL, IMAGE_CLASS), agent
     end
 
     def branded_hash
