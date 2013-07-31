@@ -7,7 +7,7 @@ gem 'mechanize'
 gem 'nokogiri'
 gem 'pry'
 gem 'stamp'
-gem "mechanize_clip"
+gem "mechanize_clip", git: 'git@github.com:alxjrvs/mechanize_clip.git'
 
 group :test do
   gem 'vcr'
