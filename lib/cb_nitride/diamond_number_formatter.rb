@@ -1,8 +1,5 @@
 module CbNitride
   class DiamondNumberFormatter
-
-    #TODO: Refactor into DiamondNumberSet with sorting capabilities instead of array of array of array.
-
     attr_reader :month, :year, :num
 
     def self.format(year: year, month: month, num: num)
