@@ -10,6 +10,7 @@ module CbNitride
     end
 
     OF_PATTERN = /[(].*[Oo][fF].*\d+.*[)]/
+
     def series_title
       @_series_title ||=
         if clean_title.include? "#"
