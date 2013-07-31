@@ -19,6 +19,10 @@ module CbNitride
       @errors = options[:errors]
     end
 
+    def release_year
+      @_release_year ||= release_date.year.to_i
+    end
+
     def author
       @_author ||= creators_hash["W"]
     end
