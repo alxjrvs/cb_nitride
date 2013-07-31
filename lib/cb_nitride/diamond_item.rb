@@ -35,6 +35,10 @@ module CbNitride
       @_cover_artist ||= creators_hash["CA"]
     end
 
+    def series_title
+      title_formatter.series_title
+    end
+
     def title
       title_formatter.clean_title
     end
