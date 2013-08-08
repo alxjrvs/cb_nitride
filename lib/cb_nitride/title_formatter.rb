@@ -41,7 +41,7 @@ module CbNitride
     end
 
     def clean_title
-      @_clean_title ||= raw_title.gsub(/[(][C].*[)]/, '').gsub('(MR)', '').gsub('(NET)', '').strip
+      @_clean_title ||= raw_title.gsub(/[(][C].*[)]?/, '').gsub('(MR)', '').gsub('(NET)', '').strip
     end
 
   end

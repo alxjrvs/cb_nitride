@@ -68,7 +68,7 @@ module CbNitride
     end
 
     def get_image
-      MechanizeClip.get get_image_url(BASE_URL, IMAGE_CLASS), agent
+      MechanizeClip.get(get_image_url(BASE_URL, IMAGE_CLASS), agent)
     end
 
     def item_page

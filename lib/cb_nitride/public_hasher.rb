@@ -21,7 +21,7 @@ module CbNitride
     RELEASE_CLASS = ".StockCodeInShopsDate"
     PRICE_CLASS  = ".StockCodeSrp"
 
-    def self.item(diamond_number, agent)
+    def self.item(diamond_number)
       item = new(diamond_number)
       if item.valid_diamond_number?
         item.spawn_item

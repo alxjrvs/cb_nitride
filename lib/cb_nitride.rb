@@ -17,7 +17,7 @@ module CbNitride
     if qualified?
       PrivateHasher.item(diamond_number, options[:agent])
     else
-      PublicHasher.item(diamond_number, options[:agent])
+      PublicHasher.item(diamond_number)
     end
   end
 end
