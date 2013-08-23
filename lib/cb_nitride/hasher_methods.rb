@@ -16,7 +16,7 @@ module CbNitride
       if image_container.empty?
         error_array << "No Image"
       else
-        base_url + item_page.css(image_class).children[1].attributes["src"].value
+        base_url + item_page.css(image_class).first.attributes["href"].value
       end
     end
 
