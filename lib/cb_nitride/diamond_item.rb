@@ -36,27 +36,27 @@ module CbNitride
     end
 
     def series_title
-      title_formatter.series_title
+      @_series_title ||= title_formatter.series_title || title
     end
 
     def title
-      title_formatter.clean_title
+      @_title ||= title_formatter.clean_title
     end
 
     def special_number
-      title_formatter.special_number
+      @_special_number ||= title_formatter.special_number
     end
 
     def issue_number
-      title_formatter.issue_number
+      @issue_number ||= title_formatter.issue_number
     end
 
     def limited_series_max_issue
-      title_formatter.limited_series_max_issue
+      @_limited_series_max_issue ||= title_formatter.limited_series_max_issue
     end
 
     def variant_description
-      title_formatter.variant_description
+      @_variant_description ||= title_formatter.variant_description
     end
 
     def product_type?
@@ -120,7 +120,8 @@ module CbNitride
         if category_code == CategorySorter::ISSUE_CODE
           value = true if title.include?("VAR ED")
           value = true if title.include?("COMBO PACK")
-          value = true if title.match(/(CVR)\s[B-Z]/)
+          value = true if tit.include?("STANDARD ED")
+          value = true if title.include?(" CVR") unless title.include?("REG CVR") || title.include? "CVR A"
         end
         value
     end
