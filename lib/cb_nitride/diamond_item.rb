@@ -120,8 +120,8 @@ module CbNitride
         if category_code == CategorySorter::ISSUE_CODE
           value = true if title.include?("VAR ED")
           value = true if title.include?("COMBO PACK")
-          value = true if tit.include?("STANDARD ED")
-          value = true if title.include?(" CVR") unless title.include?("REG CVR") || title.include? "CVR A"
+          value = true if title.include?("STANDARD ED")
+          value = true if title.include?(" CVR") unless title.include?("REG CVR") || title.include?("CVR A")
         end
         value
     end

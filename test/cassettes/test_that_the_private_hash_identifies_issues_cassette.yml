@@ -852,4 +852,191 @@ http_interactions:
         /wE+8SYbGSMAAA==
     http_version: 
   recorded_at: Wed, 31 Jul 2013 05:51:53 GMT
+- request:
+    method: get
+    uri: https://retailerservices.diamondcomics.com/Image/Display?pd=webdata/catalogimages/STK_IMAGES/STK600001-620000&pf=STK611169.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
+        like Gecko) Version/5.1.1 Safari/534.51.22
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Cookie:
+      - .ASPXAUTH=9F4C31B60CE721EF1BEDF5B72F3B3322D64738E240820CF305884B6471ED975D3E3B3878D7315474C48D85B9A4F7448E6B8AB33494C238CE8E7A23AD13B71CBD495E4D59CAF683D7764CF6C28A293D3AC9FAA8FDD1F202EBED9419DE27112968A6019441B048E6FE4F6728C000151DB8E9803BA871E2053F476D09B9B429DDD476B783A5B3561B74AF8B0820122432EE4527F1B355DE2359B06CD7C59450B694DF61916506524EB239D822752B545C0DA4DB7C1FDF7537604F365DDE00D4CF2F;
+        ASP.NET_SessionId=tuuczcjdn3g2qbhbzgx2mguf
+      Host:
+      - retailerservices.diamondcomics.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Location:
+      - /Login/Login?ReturnUrl=%2fImage%2fDisplay%3fpd%3dwebdata%2fcatalogimages%2fSTK_IMAGES%2fSTK600001-620000%26pf%3dSTK611169.jpg&pd=webdata/catalogimages/STK_IMAGES/STK600001-620000&pf=STK611169.jpg
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 03 Sep 2013 04:37:05 GMT
+      Content-Length:
+      - '320'
+    body:
+      encoding: UTF-8
+      string: "<html><head><title>Object moved</title></head><body>\r\n<h2>Object
+        moved to <a href=\"/Login/Login?ReturnUrl=%2fImage%2fDisplay%3fpd%3dwebdata%2fcatalogimages%2fSTK_IMAGES%2fSTK600001-620000%26pf%3dSTK611169.jpg&amp;pd=webdata/catalogimages/STK_IMAGES/STK600001-620000&amp;pf=STK611169.jpg\">here</a>.</h2>\r\n</body></html>\r\n"
+    http_version: 
+  recorded_at: Tue, 03 Sep 2013 04:37:02 GMT
+- request:
+    method: get
+    uri: https://retailerservices.diamondcomics.com/Login/Login?ReturnUrl=/Image/Display?pd=webdata/catalogimages/STK_IMAGES/STK600001-620000%26pf=STK611169.jpg&pd=webdata/catalogimages/STK_IMAGES/STK600001-620000&pf=STK611169.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML,
+        like Gecko) Version/5.1.1 Safari/534.51.22
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Cookie:
+      - .ASPXAUTH=9F4C31B60CE721EF1BEDF5B72F3B3322D64738E240820CF305884B6471ED975D3E3B3878D7315474C48D85B9A4F7448E6B8AB33494C238CE8E7A23AD13B71CBD495E4D59CAF683D7764CF6C28A293D3AC9FAA8FDD1F202EBED9419DE27112968A6019441B048E6FE4F6728C000151DB8E9803BA871E2053F476D09B9B429DDD476B783A5B3561B74AF8B0820122432EE4527F1B355DE2359B06CD7C59450B694DF61916506524EB239D822752B545C0DA4DB7C1FDF7537604F365DDE00D4CF2F;
+        ASP.NET_SessionId=tuuczcjdn3g2qbhbzgx2mguf
+      Host:
+      - retailerservices.diamondcomics.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      Server:
+      - Microsoft-IIS/7.5
+      X-Aspnetmvc-Version:
+      - '3.0'
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 03 Sep 2013 04:37:05 GMT
+      Content-Length:
+      - '3412'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/Ih7/rk+/PHnz+7w8Teftojz6jZPH9meezehn
+        Ss/jRd5m1KBdbee/aF1cfvbR77391fH2SbVYZW0xKfOP0mm1bPNl+9lHZ6ef
+        PTxM6d8D/vcB/3v69PPTj9K7BlxbtGV+9PTkafqKABdlXqev8/qymOZNup0+
+        ry6K5eO70kjfKIvl23Re5+effXT3RLq6+3qe1flsPG2a3+Ny/6O0zsvPPmra
+        6zJv5nnefpS216v8s4/a/F17l9p43ceAfZEVy+fZdbVuBeCnHwqwneeLvLk7
+        yZr87nm2nF5Pqnd3f/oXrfP6emz+3t4d3xvvo8MP7W26btpqsc2dai/b64Lg
+        H4x3D8by7fv200zrYtWmTT2ljl7zH42BvTt+MN4dL4rl+KfpFQ/ET2eXmbz4
+        0dHju/LbLQCO59VlXmfTaVXPimr5TULuEHuVTd9+OOimWu59OBRB8KeXVVuc
+        X3+TY6bvqrJ8U9GY98d7298E5ObqvJr8dD5tPxiS4Nhnz/fDUv59/Ltub3+v
+        OCcdk376ffrmx0Q6bmTyjvgU+aciHZuZH81uh+Hj3/V7+XJWnH9/e5v+IoA+
+        pg8+CNMHt8P0wdfHlBHr9PuyLpasGm+hQRb5rMg++2iFVz4CngpX+uxgqlr8
+        p0nn3gtADeBLgMzcy2dD75hu8Vxmdfr7X2S/KP1MfvzMz6Tf+/6h+x4fjlfr
+        Zr71vY9//yZvj0kRrZftx6P0Y7Jzew8f7N3/9NP7259+/P07G956Wi3IirzI
+        FjleJBosquVsWi2KaTOmHxtebkn1vX2ZXeSXRX4l7VzLrfP1ctqSVky37qS/
+        2H2OBwO7yGhYs2q6XtBEjad1nrX5aUmGYNlufSzU+PjOITUbg1LU9uMOrT7m
+        L7Pmejmlb9t6nVP/BNw+9C1NGn239TGcgObRx+lnXpdlNSU3gLT2qq7aalqV
+        6e+RasO7d5um/Dh9JH/Tn1dXVx/fST9JPx5fVNVFmW9ny6y8bpVEd6mnn24+
+        7nSPQTbUu+3wIm91gM2T6zfZBUjuhvq9ne8fpg0p+poavKhm+bhYNnndPsnP
+        qzrfushGaQMKE2R+fsmdLfxJouC4DP89vqsu0ONJNbumn9Q2fTwrLtNpmTUN
+        MThNGPiMPuaHvytmEI6sXTeTrPa/xWNbTNc1sFsTXqYNvtNf8Txu2rpaXhy9
+        +PJN+vzLzz8/fZqevSAM5dPHd8PWeLqfASB3NlvnM+KJKYky8afrEY95qf8J
+        /cqPBcNmqpCpjsLC4/4ahAOq9l+0X5fVRdX9Es9j8kBFJ5E+KBYX3HhWNKsy
+        u+Z3VLEYjcW+kDpgTdHmxYKmq7k7m87qBu3HF8X5R2lWks/6tGBRTcmhJUaE
+        bn18N4uhYLpl1QYgt+wUTX9/fikjb3n806uLwZ7DXrtExGMphQ5m7EA3UYKZ
+        dsps4IGPjt6s82aWXY/I4161+WJCvvfOvVG6t7N7L9pZ7DP6iAFnM3La2qKh
+        MZOm11Y0T21Wk4h+9tHvPymz5VsKDkRejDFzqmA8I0WLkbPwT4hMd4HI3Z2D
+        u3uf3r0sypKYrNkmErXz7ek8n74ti4Z64okQyh/Pmrv3Hjy87xH1OECLaCqz
+        KeiZZ3Bgiuy0zLP6vHhnhmWe7nvmb+8T+oDJA2sAQSEs8IP+2sD2hOt6sBWe
+        x+vSNvS/J3N9RDQ3aMtcPycTbsh9lwMq+fejI/4Bgjy+Sy+Scru7Rrjn4OEx
+        g6Jfo4/F+nUxy0Nyd96KQbJvg0DdF/CQ7iPvwjfs8CuooTT98V6v8rlnG1Uv
+        PFpWS2PMfglehwIl0ATq8XyP/qXPXQyqpOEvjHMhTGacFXFdx5dZWUCa3sNl
+        vR289bKakP1tisv3gU3QybIt0oy9BALPA5F/fw8a3bpeflWXn/3ue+dnUEf0
+        86mQ53e/d76a/e73Zlf5hLrP6AvS7hlJoagt+vv1m9/r9z/74vjz09fyx6c7
+        9Oxuf7pHP3Z+971PV+f0Oj7f3d399CFk8Bdmi9XhavaZwrwbQLxLTRUefg2g
+        yYvnn+FzCw3OZDuviFdWFQSfpsuxDw/wWZGXMyKT8j+4hBvo369zJsobJBMs
+        89P31IxA8fP4nEHkICX9KfD19VfId5B/yr28qKBAHzerbGm+r/X7j46+RRNC
+        Xxyls5wMJSUyMnKU5cuUO+h2i8fvipzmtqq3y2ySlxgFfR08j/mblGb6s4++
+        Ir8BTs9HR/gtXdKvJM74/ugRSQ/hYaAaHByCIeRbYsUjiGJVLFfr1rTGRC+l
+        bYrZ3ybOJt4lj9L9vW1Q+uyjN/M8tQMQKqVFY+k2/oinGS14sNzM/9uJxkfk
+        JJZr+gPqPoIlRm6Q5H6ACWSOeEN+dQgumovtkMrBV3VOojOlrnhYkEOC3enz
+        llTlGYtSlb+RuT4lA0LEOKEg+QU5RhqapC8qN+N9ALfFgGkRxWBwXjElIU46
+        L50Pf5Ynp9Ob//3XnaEYgZjEUQLxNzJFL+mNq6omQprf3NwEozOc/f9aaTT4
+        DwqjaWAm3f0t872yf989ivBlQA3uA0jcNNeuE/+r+DQ/ntTUdb/n9HG+ONp6
+        SV5dk6fQ0KlBFaOc4tMmX5JLTbb3zuO71DiEEZua2NzwvMfmpjM57M1uU17S
+        DUpHYv+mEQrtZW5ekavD/voXw7rStPmCwMgE+Z/IFHHP3DH1AbGUXslNFgSH
+        3psXM7Jt9q3zrGzoO5pmXxS8147M74SwkYeQLDGaPl4ZCk3WbVst2e+jz+3z
+        WD5XNF+vJ4uCNIyg2OhfiiKbe+IMFy3E4rSC3G6EaNO3Xkgor2J0/Nvju9Jr
+        F5e7K++Tx3d5WjxPQsdHX5B/FnFeXhMHN/Nj8mMp3ABu5BCH3j+3V4KEvszZ
+        YlXVbUam4Hi5JJMwpREt28b0Se/Ky/HOen3EmwEnQA2a2xliX/qACNxoVkJ/
+        Hr95c/rizdmXLx6RUMpH9pf06Zo8+yolNZDXdVWnNJUaBf/CuvlF6+qwIcms
+        2xEtKa0K8qOq81+4nDSrQwv8Ml9e5HWTni5nlIJs0u9S64L8hy8/f5F++8R1
+        tPWdr17s3tv59MH+0zvpFRmLtJkXqxX5Y9R9rU5/kxbLlOJYWiTIqau0aNMv
+        p20Frt1LCRIlOCGP+Vj0ivx7dp7SShHBmOakLWYO05T4KqWEJmX9KDoZGZS5
+        9RdfvX6TIptD9KW+qCNabILQpE1Gwc6Es1MMwCFAOpG/BAZ2YGMK3SnL16av
+        5xUNh4ZwRYEyAUgvC+ivJTE7aSJCiMZJ+YG8plAiT6/m5EkTVEWWsmP0Cjeu
+        oEqW9HZVsh42A/F7pz7aebrKKVvX4vULGvgSHZB3Tqrzal6R+iQs8N6kqt4S
+        bB1PRhlamp6xyEqfed5YADxHxfKyooVAskBVrRNPunhw0llTy8wTioSATgq5
+        30QjUslpRjTKKPVyka6XlHciwucLIsKM3lWCMp8c3Dt4YEksHRMlaDgFvSI4
+        ASWivUmb7O4ShWTyKPE5W9PSCOlow1aMDL2+JEoQUtsT+ptGdVlkGzA4sBgA
+        NL3d6dznjLDnIep+RQ4Ad1znZOosYmQAgZd+R/5kQcmFFgZlSfRrmqy+xuQu
+        wP6EBjpfZMRjNLNWSglTfA3usN0fbdMCLv1nBmZ+4jPvPxGj7VTNcZu9xYQt
+        Kmgw9HsJ+0x9ct+v14sFjfnJy2OsDkOUpqQ8ZsRwVXpeVwtuNCGFn1LGNQW7
+        0d9ttTJsbOaEpk7XmCk2JUHJCZogYqnu/aLjEU6wf5rxiB/DRCZLSEpyuyl+
+        kD8igs2K9eIQKjHeoCEylvjedEzN7A8D3GFhf0H/pHvtE6h573c85m/W68oP
+        pMs1nRV+K9+K4hfzYlQ93tZf8VCKSdJJmr0jBcRUHXfXOcbrt3eR2CGLSkBp
+        WWFFXPh72VloHqUnZTF9m36bpN2Bx/OmShkRyU657juY+MCYFWjZmFh2YK6P
+        aT0knVwTN5VldQU10M6JzbHGRVwrkO1P+mEIxpjESGIJIQmWu8+q+qJqrYt6
+        JH+DT2syZPLp74EhKQzti34VePIrnuibaXoyr6AhGe1qBXyIu0me27rISdEF
+        zb+ZISHrkTfemD4nOc9sJ7caTARrWv0kZNnyqMVPEb6R1EPLpbQgNCOJyWg1
+        kmaJ/C3IOBTVPLv0OCVLn548jUz0d1WoDZZ9UkjCTF1FBKZBQk16+N22zCrT
+        nTFxzux6aPWNBrO19bttffTjNktwB3k8avS7fpZ+9NGd9Bf+wpS/DwPVsFEA
+        EQ9esGS/MyaTStPFy1P0JT+UxqR/adGKPiP9wMgT7vQHLTCnX70+ffX7k5Px
+        +8uS0e9/9iLldV3+8qmQs84X5J2k2QT/ggzShIDax5DMfWo+oV/5wWyzz3he
+        ka4OXFY8ojbdZ+Z1+cT9RX61rK1R2rVdID74fwAJ6b4gkSQAAA==
+    http_version: 
+  recorded_at: Tue, 03 Sep 2013 04:37:02 GMT
 recorded_with: VCR 2.5.0
