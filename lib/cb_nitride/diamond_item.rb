@@ -25,6 +25,10 @@ module CbNitride
       @_release_year ||= release_date.year.to_i
     end
 
+    def raw_title
+      @_raw_title ||= @raw_title.sub(SHORT_PAREN_OF_PATTERN, ' (Of ')
+    end
+
     def author
       @_author ||= creators_hash["W"]
     end
@@ -105,10 +109,6 @@ module CbNitride
 
     def is_collection?
       @_is_collection ||= CategorySorter::COLLECTION_CODE  == category_code
-    end
-
-    def raw_title
-      @_raw_title ||= @raw_title.sub(SHORT_PAREN_OF_PATTERN, ' (Of ')
     end
 
     def is_merch?
