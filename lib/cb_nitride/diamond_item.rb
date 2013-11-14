@@ -1,6 +1,8 @@
 module CbNitride
   class DiamondItem
 
+    SHORT_PAREN_OF_PATTERN = /\s*[O][f][(]/
+
     attr_reader :state, :diamond_number, :stock_number, :image_url, :publisher, :creators, :description, :release_date, :price, :category_code, :errors, :raw_title, :image
 
     def initialize(options = {})
@@ -103,6 +105,10 @@ module CbNitride
 
     def is_collection?
       @_is_collection ||= CategorySorter::COLLECTION_CODE  == category_code
+    end
+
+    def raw_title
+      @_raw_title ||= @raw_title.sub(SHORT_PAREN_OF_PATTERN, ' (Of ')
     end
 
     def is_merch?

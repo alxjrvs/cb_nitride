@@ -9,7 +9,7 @@ module CbNitride
       @raw_title = raw_title
     end
 
-    OF_PATTERN = /[(].*[Oo][fF].*\d+.*[)]/
+    LONG_PAREN_OF_PATTERN = /[(].*[Oo][fF].*\d+.*[)]/
 
     def series_title
       @_series_title ||=
@@ -28,20 +28,28 @@ module CbNitride
 
     def limited_series_max_issue
       @_limited_series_max_issue ||=
-        num = clean_title.match(OF_PATTERN).to_s.match(/\d+/).to_s.strip
-        num.empty? ? nil : num.to_i
+        if clean_title.match(LONG_PAREN_OF_PATTERN)
+          clean_long_paren_of_text
+        else
+          nil
+        end
     end
 
     def variant_description
       @_variant_description ||=
         array = clean_title.split(/#\S+/)
         return nil if array.size == 1
-        string = array.last.gsub(OF_PATTERN, '').strip
+        string = array.last.gsub(LONG_PAREN_OF_PATTERN, '').strip
         string.empty? ? nil : string
     end
 
+    def clean_long_paren_of_text
+      clean_title.match(LONG_PAREN_OF_PATTERN).to_s.match(/\d+/).to_s.strip.to_i
+    end
+
     def clean_title
-      @_clean_title ||= raw_title.gsub(/[(][C].*[)]?/, '').gsub('(MR)', '').gsub('(NET)', '').strip
+      @_clean_title ||= 
+        raw_title.gsub(/[(][C].*[)]?/, '').gsub('(MR)', '').gsub('(NET)', '').strip
     end
 
   end

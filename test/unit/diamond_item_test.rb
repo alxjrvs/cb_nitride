@@ -37,6 +37,4 @@ class DiamondItemTest < MiniTest::Unit::TestCase
     assert_equal :merchandise, ideal_merchandise
   end
 
-  #TODO Test for Correct Creator filtering, consider moving ideal objects to module
-
 end
