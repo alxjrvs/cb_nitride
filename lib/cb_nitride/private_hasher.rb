@@ -71,6 +71,9 @@ module CbNitride
       MechanizeClip.get(get_image_url(BASE_URL, IMAGE_CLASS), agent)
     end
 
+    def fine_sort
+    end
+
     def item_page
       @item_page ||= Nokogiri::HTML(agent.get(SEARCH_URL + diamond_number).content)
     end

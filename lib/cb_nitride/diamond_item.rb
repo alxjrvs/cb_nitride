@@ -117,19 +117,15 @@ module CbNitride
 
     def is_issue?
       @_is_issue ||=
-        category_code == CategorySorter::ISSUE_CODE && is_variant? == false
+        category_code == CategorySorter::ISSUE_CODE && category_sorter.is_issue?
+    end
+
+    def category_sorter
+      @_category_sorter ||= CategorySorter.new({title: title, category_code: category_code  })
     end
 
     def is_variant?
-      @_is_variant ||=
-        value = false
-        if category_code == CategorySorter::ISSUE_CODE
-          value = true if title.include?("VAR ED")
-          value = true if title.include?("COMBO PACK")
-          value = true if title.include?("STANDARD ED")
-          value = true if title.include?(" CVR") unless title.include?("REG CVR") || title.include?("CVR A")
-        end
-        value
+      @_is_variant ||= category_code == CategorySorter::ISSUE_CODE && category_sorter.is_variant?
     end
   end
 end

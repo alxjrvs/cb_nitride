@@ -19,20 +19,20 @@ module CbNitride
       return ISSUE_CODE if is_issue?
     end
 
-    private
-
     def is_variant?
       return @is_variant unless @is_variant.nil?
       @is_variant = true if hash[:title].include? "VAR ED"
       @is_variant = true if hash[:title].include? "COMBO PACK"
+      @is_variant = true if hash[:title].include? "STANDARD ED"
       @is_variant = true if hash[:title].match(/(CVR)\s[B-Z]/)
       @is_variant = false if @is_variant.nil?
+      @is_variant = false if specific_issue_patterns(hash[:title])
       return @is_variant
     end
 
     def is_issue?
       return @is_issue unless @is_issue.nil?
-      if hash[:title].match(/(CVR)\s[A]/)
+      if specific_issue_patterns(hash[:title])
         @is_issue = true
       elsif is_variant?
         @is_issue = false
@@ -65,6 +65,21 @@ module CbNitride
         @is_merch = false
       end
       return @is_merch
+    end
+
+    private
+
+    def strict_issue_title_matcher(title)
+      /^(#{title})\s[#]/
+    end
+
+    def specific_issue_patterns(title)
+      title.match(/(CVR)\s[A]/) ||
+        title.match(strict_issue_title_matcher("RED SONJA")) ||
+        title.match(strict_issue_title_matcher("VAMPIRELLA")) ||
+        title.match(strict_issue_title_matcher("ARMY OF DARKNESS VS HACK SLASH")) ||
+        title.include?("DIRECT MARKET CVR") ||
+        title.include?("MAIN CVRS")
     end
   end
 end
