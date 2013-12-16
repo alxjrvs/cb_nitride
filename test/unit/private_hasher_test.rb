@@ -40,28 +40,9 @@ class PrivateHasherTest < MiniTest::Unit::TestCase
     assert_equal @item.category_code, "1"
   end
 
-  def test_that_the_private_hash_identifies_issues
-    setup_object(ISSUE_CODE)
-    assert_equal @item.category_code, ISSUE_CATEGORY_CODE
-  end
-
-  def test_that_the_private_hash_identifies_variants
-    setup_object(VARIANT_CODE)
-    assert_equal @item.category_code, ISSUE_CATEGORY_CODE
-  end
-
-  def test_that_the_private_hash_identifies_merchandise
-    setup_object(MERCH_CODE)
-    assert_includes MERCHANDISE_CATEGORY_CODES, @item.category_code
-  end
-
-  def test_that_the_private_hash_identifies_collection
-    setup_object(COLLECTION_CODE)
-    assert_equal @item.category_code, COLLECTION_CATEGORY_CODE
-  end
-
   def test_that_the_private_hash_identifies_invalid_diamond_codes
-    setup_object("FEB1099999")
-    assert_equal @item, nil
+    setup_object(BAD_CODE)
+    assert_equal @item.class, CbNitride::NullItem
+    assert_equal @item.diamond_number, BAD_CODE
   end
 end

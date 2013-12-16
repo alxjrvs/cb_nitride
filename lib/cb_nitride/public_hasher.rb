@@ -26,7 +26,7 @@ module CbNitride
       if item.valid_diamond_number?
         item.spawn_item
       else
-        return nil
+        return NullItem.new(diamond_number)
       end
     end
 
@@ -53,8 +53,8 @@ module CbNitride
       item_page.css("a.FancyPopupImage").children[1]["alt"].gsub(" Image", "")
     end
 
-    def uncategorized_hash
-      @_uncategorized_hash ||= {
+    def branded_hash
+      @_branded_hash ||= {
         title: find_text_with(TITLE_CLASS),
         diamond_number: diamond_number,
         stock_number: get_stock_number,
@@ -71,13 +71,6 @@ module CbNitride
 
     def get_image
       MechanizeClip.get get_image_url(BASE_URL, IMAGE_CLASS), agent
-    end
-
-    def branded_hash
-      @_branded_hash ||=
-        uncategorized_hash.merge!(
-          category_code: CategorySorter.new(uncategorized_hash).sort
-        )
     end
 
     def item_page

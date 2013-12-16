@@ -21,13 +21,6 @@ module CbNitride
       @errors = options[:errors]
     end
 
-    def release_year
-      if release_date.nil?
-        return nil
-      else
-        return release_date.year.to_i
-      end
-    end
     def raw_title
       @_raw_title ||= @raw_title.sub(SHORT_PAREN_OF_PATTERN, ' (Of ')
     end
@@ -110,25 +103,5 @@ module CbNitride
       @_formatted_title ||= TitleFormatter.new(raw_title)
     end
 
-    def is_collection?
-      @_is_collection ||= CategorySorter::COLLECTION_CODE  == category_code
-    end
-
-    def is_merch?
-      @_is_merch ||= CategorySorter::MERCHANDISE_CODES.include? category_code
-    end
-
-    def is_issue?
-      @_is_issue ||=
-        category_code == CategorySorter::ISSUE_CODE && category_sorter.is_issue?
-    end
-
-    def category_sorter
-      @_category_sorter ||= CategorySorter.new({title: title, category_code: category_code  })
-    end
-
-    def is_variant?
-      @_is_variant ||= category_code == CategorySorter::ISSUE_CODE && category_sorter.is_variant?
-    end
   end
 end
