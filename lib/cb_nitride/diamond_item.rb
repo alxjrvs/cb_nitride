@@ -22,7 +22,9 @@ module CbNitride
     end
 
     def release_year
-      @_release_year ||= release_date.year.to_i
+      @_release_year ||=
+        return nil if release_date.nil?
+        release_date.year.to_i
     end
 
     def raw_title
