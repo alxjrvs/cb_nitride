@@ -10,12 +10,16 @@ module CbNitride
       new.imminent_numbers
     end
 
+    def self.generate_recent_diamond_numbers
+      generate_for(years: ['06', '07', '08', '09', '10', '11', '12', '13', '14'])
+    end
+
     def self.generate_all_diamond_numbers
       new.brute_force_formatted_numbers
     end
 
-    def self.generate_for(years: years, months: months)
-      new.brute_force_formatted_numbers(year_range: years, month_range: months)
+    def self.generate_for(years: years)
+      new.brute_force_formatted_numbers(year_range: years)
     end
 
     def imminent_numbers
@@ -24,7 +28,7 @@ module CbNitride
       end.flatten
     end
 
-    def brute_force_formatted_numbers(year_range: year_range || YEAR_CODES, month_range: month_range || MONTH_CODES)
+    def brute_force_formatted_numbers(year_range: YEAR_CODES, month_range: MONTH_CODES)
       year_range.map do |year|
         month_range.map do |month|
           generate_numbers(year, month)

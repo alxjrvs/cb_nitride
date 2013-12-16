@@ -21,7 +21,7 @@ module CbNitride
     def special_number
       @_special_number ||=
         match = clean_title.match(/#\S+/).to_s.gsub('#', '').strip
-        if match.empty?
+        if match.nil? || match.empty?
           nil
         else
           match
@@ -31,7 +31,7 @@ module CbNitride
     def issue_number
       @_issue_number ||=
         match = clean_title.match(/#\d+/).to_s.gsub('#', '').strip
-        if match.empty?
+        if match.nil? || match.empty?
           nil
         else
           match.to_i
