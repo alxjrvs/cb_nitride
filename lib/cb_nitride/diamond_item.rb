@@ -21,12 +21,6 @@ module CbNitride
       @errors = options[:errors]
     end
 
-    def release_year
-      @_release_year ||=
-        return nil if release_date.nil?
-        release_date.year.to_i
-    end
-
     def raw_title
       @_raw_title ||= @raw_title.sub(SHORT_PAREN_OF_PATTERN, ' (Of ')
     end
