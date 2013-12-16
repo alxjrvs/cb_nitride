@@ -25,8 +25,8 @@ module CbNitride
       @is_variant = true if hash[:title].include? "COMBO PACK"
       @is_variant = true if hash[:title].include? "STANDARD ED"
       @is_variant = true if hash[:title].match(/(CVR)\s[B-Z]/)
+      @is_variant = true if specific_issue_patterns(hash[:title])
       @is_variant = false if @is_variant.nil?
-      @is_variant = false if specific_issue_patterns(hash[:title])
       return @is_variant
     end
 
@@ -78,11 +78,13 @@ module CbNitride
         title.match(strict_issue_title_matcher("RED SONJA")) ||
         title.match(strict_issue_title_matcher("VAMPIRELLA")) ||
         title.match(strict_issue_title_matcher("ARMY OF DARKNESS VS HACK SLASH")) ||
-        title.match(/\d\D+(PTG)$/)
-        title.match(/(REORDER ED)$/)
-        title.include?("VAR INCENTIVE CVR") ||
-        title.include?("DIRECT MARKET CVR") ||
-        title.include?("MAIN CVRS")
+        title.split("#")[1].match(/\d\D+(PTG)/) ||
+        title.split('#')[1].match(/(REORDER ED)/) ||
+        title.split('#')[1].match(/(SKETCH ED)/) ||
+        title.split('#')[1].match(/(FOIL CVR)/) ||
+        title.split("#")[1].include?("VAR INCENTIVE CVR") ||
+        title.split("#")[1].include?("DIRECT MARKET CVR") ||
+        title.split("#")[1].include?("MAIN CVRS")
     end
   end
 end
