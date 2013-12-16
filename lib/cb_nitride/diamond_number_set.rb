@@ -11,7 +11,7 @@ module CbNitride
     end
 
     def self.generate_recent_diamond_numbers
-      generate_for(years: ['06', '07', '08', '09', '10', '11', '12', '13', '14'])
+      generate_for(years: ['10', '11', '12', '13', '14'])
     end
 
     def self.generate_all_diamond_numbers
@@ -33,7 +33,7 @@ module CbNitride
         month_range.map do |month|
           generate_numbers(year, month)
         end
-      end
+      end.flatten
     end
 
     private
