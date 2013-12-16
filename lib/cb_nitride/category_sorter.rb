@@ -80,6 +80,7 @@ module CbNitride
         title.match(strict_issue_title_matcher("ARMY OF DARKNESS VS HACK SLASH")) ||
         title.match(/\d\D+(PTG)$/)
         title.match(/(REORDER ED)$/)
+        title.include?("VAR INCENTIVE CVR") ||
         title.include?("DIRECT MARKET CVR") ||
         title.include?("MAIN CVRS")
     end

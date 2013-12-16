@@ -21,7 +21,7 @@ module CbNitride
       if item.valid_diamond_number?
         item.spawn_item
       else
-        return nil
+        return NullItem.new(diamond_number)
       end
     end
 
