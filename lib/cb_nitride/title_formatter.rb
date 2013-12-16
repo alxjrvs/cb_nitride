@@ -19,11 +19,23 @@ module CbNitride
     end
 
     def special_number
-      @_special_number ||= clean_title.match(/#\S+/).to_s.gsub('#', '').strip
+      @_special_number ||=
+        match = clean_title.match(/#\S+/).to_s.gsub('#', '').strip
+        if match.empty?
+          nil
+        else
+          match
+        end
     end
 
     def issue_number
-      @_issue_number ||= clean_title.match(/#\d+/).to_s.gsub('#', '').strip.to_i
+      @_issue_number ||=
+        match = clean_title.match(/#\d+/).to_s.gsub('#', '').strip
+        if match.empty?
+          nil
+        else
+          match.to_i
+        end
     end
 
     def limited_series_max_issue
@@ -48,7 +60,7 @@ module CbNitride
     end
 
     def clean_title
-      @_clean_title ||= 
+      @_clean_title ||=
         raw_title.gsub(/[(][C].*[)]?/, '').gsub('(MR)', '').gsub('(NET)', '').strip
     end
 

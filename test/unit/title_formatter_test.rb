@@ -6,6 +6,10 @@ class CbNitride::TitleFormatterTest < MiniTest::Unit::TestCase
     @_issue ||= CbNitride::TitleFormatter.new('GREEN LANTERN #17')
   end
 
+  def one_shot
+    @_one_shot ||= CbNitride::TitleFormatter.new('8BIT ZOMBIES ONE SHOT')
+  end
+
   def variant
     @_variant ||= CbNitride::TitleFormatter.new('GREEN LANTERN #17 CVR B ZAYAS')
   end
@@ -27,6 +31,7 @@ class CbNitride::TitleFormatterTest < MiniTest::Unit::TestCase
   end
 
   def test_issue_number
+    assert_equal nil, one_shot.issue_number
     assert_equal 17, issue.issue_number
     assert_equal 17, variant.issue_number
     assert_equal 10, special_number.issue_number
@@ -34,6 +39,7 @@ class CbNitride::TitleFormatterTest < MiniTest::Unit::TestCase
   end
 
   def test_special_number
+    assert_equal nil, one_shot.special_number
     assert_equal '17', issue.special_number
     assert_equal '17', variant.special_number
     assert_equal '10AI', special_number.special_number

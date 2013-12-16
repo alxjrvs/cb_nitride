@@ -78,6 +78,8 @@ module CbNitride
         title.match(strict_issue_title_matcher("RED SONJA")) ||
         title.match(strict_issue_title_matcher("VAMPIRELLA")) ||
         title.match(strict_issue_title_matcher("ARMY OF DARKNESS VS HACK SLASH")) ||
+        title.match(/\d\D+(PTG)$/)
+        title.match(/(REORDER ED)$/)
         title.include?("DIRECT MARKET CVR") ||
         title.include?("MAIN CVRS")
     end
