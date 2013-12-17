@@ -18,7 +18,6 @@ class PublicHasherTest < MiniTest::Unit::TestCase
 
   def test_that_the_public_diamond_item_contains_the_right_fields
     setup_object(ISSUE_CODE)
-    refute_equal @item.title, "Pug Party Parade"
     assert_equal @item.stock_number, "STK611169"
     assert_equal @item.diamond_number, ISSUE_CODE
     assert_equal @item.image.class, MechanizeClip::PageTmpFile

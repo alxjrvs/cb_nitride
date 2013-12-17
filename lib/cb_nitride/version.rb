@@ -1,3 +1,3 @@
 module CbNitride
-  VERSION = "0.1.42"
+  VERSION = "0.2.00"
 end
